@@ -4,15 +4,16 @@ import SingleQuestion from './Question';
 function App() {
   
   return (
-    <>
-    <section className='container'>
-    <h1>Questions about login</h1>
-      {data.map((dataItem)=>{
-        return <SingleQuestion dataItem={dataItem}/>
-      })}
-    </section>
-     
-    </>
+    <main>
+    <div className='container'>
+    <h3>Questions about login</h3>
+      <section className="info">
+        {data.map((dataItem)=>{
+          return <SingleQuestion dataItem={dataItem}/>
+        })}
+      </section>
+    </div>
+    </main>
   )
 }
 
