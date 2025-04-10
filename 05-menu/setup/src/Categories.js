@@ -1,26 +1,30 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Menu from './Menu'
 
 const Categories = ({items}) => {
+  const [filteredItems,setFilteredItems] = useState(items)
 
   function filterItems(category){
-    if(items.category===category){
-      console.log(items)
-      // return <Menu items={newItems}/>
-    }
+   if(category==='all'){
+    setFilteredItems(items);
+    return
+   }
+   const newItems = items.filter((item)=>item.category===category);
+   setFilteredItems(newItems)
   }
   const categories = ['all',...new Set(items.map((item)=>item.category))]
   return(
     <>
-      {categories.map((category,index)=>{
-        return(
-          <div className="btn-container" key={index}>
-              <button  className='filter-btn'  onClick={filterItems}>{category}</button>
-          </div>
-          
-        )
-      })}
+        <div className='btn-container'>
+            {categories.map((category,index)=>{
+              return(
+                  <button  type='button' className='filter-btn' key={index} onClick={()=>{filterItems(category)}}>{category}</button>
+              )
+            })}
+        </div>
+        <Menu items={filteredItems}/>
     </>
+    
   )
 };
 

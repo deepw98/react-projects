@@ -5,17 +5,17 @@ import items from './data';
 
 function App() {
   return (
-    <>
-    <div className="menu">
-      <h1>Our Menu</h1>
-      <Categories items={items}/>
-      <section className="section-center">
-        <Menu items={items}/>
-      </section>
+    <main>
+     <section className='menu section'>
+      <div className="title">
+          <h1>Our Menu</h1>
+          <div className="underline"></div>
+      </div>
+          <Categories items={items}/>
+     </section>
       
-    </div>
      
-    </>
+    </main>
   )
 }
 
