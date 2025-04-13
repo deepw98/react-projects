@@ -6,13 +6,13 @@ function App() {
 
   function ShowParagraph(){
     let input = document.querySelector('input')
-    setParagraphs([])
+    let inputValue = parseInt(input.value,10)
     if(isNaN(input.value) || input.value<1  || input.value>9){
       alert('Please enter value between 1 and 9')
     }else{
-      setParanum(parseInt(input.value))
+      setParanum(inputValue)
       let newParagraphs = []
-      for(let i=0;i<=paranum;i++){
+      for(let i=0;i<inputValue;i++){
         newParagraphs.push(<p key={i}>{data[i]}</p>)
       }
       setParagraphs(newParagraphs)
